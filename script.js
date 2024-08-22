@@ -24,9 +24,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    function getTouchPos(e) {
+        const rect = scratchCanvas.getBoundingClientRect();
+        if (e.touches) {
+            return {
+                x: e.touches[0].clientX - rect.left,
+                y: e.touches[0].clientY - rect.top
+            };
+        }
+        return {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        };
+    }
+
+    function scratch(e) {
+        const pos = getTouchPos(e);
+        ctx.beginPath();
+        ctx.moveTo(lastX, lastY);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+        ctx.arc(pos.x, pos.y, 15, 0, Math.PI * 2);
+        ctx.fill();
+
+        lastX = pos.x;
+        lastY = pos.y;
+    }
 
     scratchCanvas.addEventListener('mousedown', (e) => {
         isDrawing = true;
+        const pos = getTouchPos(e);
+        lastX = pos.x;
+        lastY = pos.y;
         scratch(e);
     });
 
@@ -45,15 +77,25 @@ document.addEventListener('DOMContentLoaded', () => {
         isDrawing = false;
     });
 
-    function scratch(e) {
-        const rect = scratchCanvas.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+    scratchCanvas.addEventListener('touchstart', (e) => {
+        isDrawing = true;
+        const pos = getTouchPos(e);
+        lastX = pos.x;
+        lastY = pos.y;
+        scratch(e);
+    });
 
-        ctx.beginPath();
-        ctx.arc(x, y, 15, 0, Math.PI * 2);
-        ctx.fill();
-    }
+    scratchCanvas.addEventListener('touchmove', (e) => {
+        if (isDrawing) {
+            scratch(e);
+        }
+        e.preventDefault(); // Prevent scrolling while drawing
+    });
+
+    scratchCanvas.addEventListener('touchend', () => {
+        isDrawing = false;
+        checkScratchCompletion();
+    });
 
     function checkScratchCompletion() {
         const imageData = ctx.getImageData(0, 0, scratchCanvas.width, scratchCanvas.height);
@@ -89,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
             message.classList.remove('error');
             setTimeout(function() {
                 location.replace('https://wa.me/541165354682');
-            },3000)
+            },3000);
             // Proceed to next step or reveal more content
         } else {
             message.textContent = 'Contraseña incorrecta. Vuelve a intentar';
