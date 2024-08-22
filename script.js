@@ -126,12 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
     submitButton.addEventListener('click', () => {
         const userInput = passwordInput.value.trim().toLowerCase();
         if (userInput === hiddenMessage) {
-            message.textContent = 'Acceso concedido! Bienvenida';
+            message.textContent = 'Acceso concedido! Bienvenido';
             message.classList.add('success');
             message.classList.remove('error');
-            setTimeout(function() {
-                location.replace('https://wa.me/541165354682');
-            },3000);
             // Proceed to next step or reveal more content
         } else {
             message.textContent = 'Contraseña incorrecta. Vuelve a intentar';
