@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enigma Puzzle</title>
+    <title>Enigma Puzzle Series</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="hint">
-            <p>"El secreto se esconde en las sombras."</p>
-        </div>
-        <div class="puzzle-area">
-            <div class="scratch-card" id="scratchCard">
-                <canvas id="scratchCanvas" width="300" height="100"></canvas>
-            </div>
-            <div class="input-area">
-                <input type="text" id="passwordInput" placeholder="Ingresa la contraseña">
-                <button id="submitButton">Ingresar</button>
-            </div>
-            <div class="message" id="message"></div>
+        <h1>Welcome to the Enigma Puzzle Series</h1>
+        <p>Challenge your mind and solve a series of puzzles. Each puzzle must be completed before you can move on to the next.</p>
+        <p>Are you ready to begin?</p>
+
+        <div class="puzzle-links">
+            <h2>Choose a Puzzle to Start:</h2>
+            <ul id="puzzleList">
+                <li><a href="puzzle/puzzle1.html" id="puzzle1">Puzzle 1: The Shadow's Secret</a></li>
+                <li><a href="#" id="puzzle2" class="locked">[Locked]</a></li>
+                <!-- Add more puzzles as needed -->
+            </ul>
         </div>
     </div>
 
