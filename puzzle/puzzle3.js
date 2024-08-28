@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const secretCode = "the art of war"; // Expect this exact phrase (case-insensitive)
     let hintsUsed = 0;
     const clues = [
-        "First Clue: Study what the greatest conqueror studied.",
+        "First Clue: Study what one of the greatest conqueror studied.",
         "Second Clue: Seek the wisdom that guided empires.",
         "Third Clue: The path to victory lies in ancient texts.",
         "Fourth Clue: Unlock the strategy of Sun’s legacy.",
