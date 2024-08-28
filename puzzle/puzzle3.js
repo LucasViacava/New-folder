@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         strategy: () => {
             if (hintsUsed >= clues.length) {
-                return "Sun Tzu teaches that battles are won by strategy, not just by strength.";
+                return "Know your enemy and know yourself.";
             } else {
                 return "Command not recognized: strategy. Type 'help' for a list of commands.";
             }
