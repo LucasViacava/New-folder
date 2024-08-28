@@ -144,7 +144,6 @@ p {
     background-color: #388e3c;
 }
 
-/* Overlay Styles */
 .overlay {
     position: fixed;
     top: 0;
@@ -152,7 +151,7 @@ p {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
-    pointer-events: none; /* Allow interactions with underlying elements */
+    pointer-events: none;
     overflow: hidden;
 }
 
@@ -167,10 +166,10 @@ p {
 
 .hidden-message {
     position: absolute;
-    bottom: 150px; /* Move up from the very bottom */
-    left: 40px; /* Move right from the very left */
-    font-size: 16px; /* Slightly larger text for better visibility */
-    color: rgba(0, 0, 0, 0); /* Initially hidden */
+    bottom: 150px;
+    left: 40px;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0);
     letter-spacing: 1px;
     font-family: 'Courier New', Courier, monospace;
     user-select: none;
