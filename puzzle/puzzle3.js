@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clues = [
         "First Clue: Study what one of the greatest commanders studied.",
         "Second Clue: Seek the wisdom that guided empires.",
-        "Third Clue: The path to victory lies in ancient texts.",
+        "Third Clue: The path to victory lies in the ancient texts.",
         "Fourth Clue: Unlock the strategy of Sun’s legacy.",
         "Final Clue: A war is won before it begins. Seek the art within."
     ];
