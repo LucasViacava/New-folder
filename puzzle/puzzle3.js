@@ -2,10 +2,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const terminalInput = document.getElementById('terminal-input');
     const terminalOutput = document.getElementById('terminal-output');
 
-    const secretCode = "the art of war"; // Expect this exact phrase (case-insensitive)
+    const secretCode = "the art of war";
     let hintsUsed = 0;
     const clues = [
-        "First Clue: Study what one of the greatest conqueror studied.",
+        "First Clue: Study what one of the greatest commanders studied.",
         "Second Clue: Seek the wisdom that guided empires.",
         "Third Clue: The path to victory lies in ancient texts.",
         "Fourth Clue: Unlock the strategy of Sun’s legacy.",
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function executeCommand(input) {
         const [command, ...args] = input.trim().split(' ');
-        const code = args.join(' ').toLowerCase(); // Combine arguments into a single string and lowercase it
+        const code = args.join(' ').toLowerCase();
         if (commands[command]) {
             return commands[command](code);
         } else {
