@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         },
         unlock: (code) => {
-            if (code.toLowerCase() === secretCode) {
+            if (code.toLowerCase() === secretCode || code.toLowerCase() === secretCode.substring(4)) {
                 markPuzzleAsComplete();
                 showNextButton();
                 return "Correct, you unlocked the next puzzle.";
